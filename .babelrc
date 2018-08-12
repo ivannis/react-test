@@ -1,0 +1,42 @@
+{
+    "presets": [
+        [
+            "next/babel",
+            {
+                "styled-jsx": {
+                    "plugins": [
+                        "styled-jsx-plugin-less"
+                    ]
+                }
+            }
+        ]
+    ],
+    "env": {
+        "test": {
+            "presets": [["next/babel", { "preset-env": { "modules": "commonjs" } }]],
+            "plugins": [
+                "istanbul"
+            ]
+        },
+        "development": {
+            "plugins": [
+                "transform-react-jsx",
+                "transform-decorators-legacy",
+                "transform-flow-strip-types",
+                ["transform-define", "./app/config/index.js"],
+                "react-intl",
+                ["transform-assets-import-to-string", { "baseDir": "static", "baseUri": "/" }]
+            ]
+        },
+        "production": {
+            "plugins": [
+                "transform-react-jsx",
+                "transform-decorators-legacy",
+                "transform-flow-strip-types",
+                ["transform-define", "./app/config/index.js"],
+                ["react-intl", { "messagesDir": "./app/config/translations/.messages/" }],
+                ["transform-assets-import-to-string", { "baseDir": "static", "baseUri": "/" }]
+            ]
+        }
+    }
+}

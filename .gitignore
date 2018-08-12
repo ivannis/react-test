@@ -1,0 +1,8 @@
+.next/
+.nyc_output/
+coverage/
+node_modules/
+app/config/translations/.messages
+
+*.DS_Store
+.idea
